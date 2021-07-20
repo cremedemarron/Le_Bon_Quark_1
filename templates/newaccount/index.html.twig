@@ -15,10 +15,10 @@
                 <th>Spaces</th>
                 <th>HomePlanet</th>
                 <th>GalacticCredit</th>
-                <th>Status</th>
+               
                 <th>Description</th>
                 <th>Avatar</th>
-                <th>TimeToCreate</th>
+               
                 <th>actions</th>
             </tr>
         </thead>
@@ -32,10 +32,10 @@
                 <td>{{ user.spaces }}</td>
                 <td>{{ user.homePlanet }}</td>
                 <td>{{ user.galacticCredit }}</td>
-                <td>{{ user.status }}</td>
+                
                 <td>{{ user.description }}</td>
                 <td>{{ user.avatar }}</td>
-                <td>{{ user.timeToCreate ? user.timeToCreate|date('H:i:s') : '' }}</td>
+               
                 <td>
                     <a href="{{ path('newaccount_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('newaccount_edit', {'id': user.id}) }}">edit</a>

@@ -10,8 +10,13 @@
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+         {{form_row(registrationForm.psedo)}}
+        {{form_row(registrationForm.spaces)}}
+         {{form_row(registrationForm.homePlanet)}}
+          {{form_row(registrationForm.description)}}
+              {{form_row(registrationForm.avatar)}}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">créé</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

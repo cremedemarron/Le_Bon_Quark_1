@@ -15,13 +15,14 @@ class UserType extends AbstractType
             ->add('email')
             ->add('roles')
             ->add('password')
+            ->add('psedo')
             ->add('spaces')
             ->add('homePlanet')
             ->add('galacticCredit')
-            ->add('status')
+           
             ->add('description')
             ->add('avatar')
-            ->add('timeToCreate')
+           
         ;
     }
 

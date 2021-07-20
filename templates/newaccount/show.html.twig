@@ -23,6 +23,11 @@
                 <th>Password</th>
                 <td>{{ user.password }}</td>
             </tr>
+                <tr>
+                <th>Spaces</th>
+                <td>{{ user.psedo}}</td>
+            </tr>
+
             <tr>
                 <th>Spaces</th>
                 <td>{{ user.spaces }}</td>
@@ -35,10 +40,7 @@
                 <th>GalacticCredit</th>
                 <td>{{ user.galacticCredit }}</td>
             </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ user.status }}</td>
-            </tr>
+          
             <tr>
                 <th>Description</th>
                 <td>{{ user.description }}</td>
@@ -48,9 +50,7 @@
                 <td>{{ user.avatar }}</td>
             </tr>
             <tr>
-                <th>TimeToCreate</th>
-                <td>{{ user.timeToCreate ? user.timeToCreate|date('H:i:s') : '' }}</td>
-            </tr>
+              
         </tbody>
     </table>
 

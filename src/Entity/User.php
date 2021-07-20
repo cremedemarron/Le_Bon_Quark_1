@@ -52,11 +52,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $galacticCredit;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $status;
-
+    
     /**
      * @ORM\Column(type="text", nullable=true)
      */
@@ -68,9 +64,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $avatar;
 
     /**
-     * @ORM\Column(type="time")
+     * @ORM\Column(type="string", length=255)
      */
-    private $timeToCreate;
+    private $psedo;
+
+    
 
 
     function __toString()
@@ -202,17 +200,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
+   
 
     public function getDescription(): ?string
     {
@@ -238,15 +226,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getTimeToCreate(): ?\DateTimeInterface
+    public function getPsedo(): ?string
     {
-        return $this->timeToCreate;
+        return $this->psedo;
     }
 
-    public function setTimeToCreate(\DateTimeInterface $timeToCreate): self
+    public function setPsedo(string $psedo): self
     {
-        $this->timeToCreate = $timeToCreate;
+        $this->psedo = $psedo;
 
         return $this;
     }
+
+    
 }

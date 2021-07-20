@@ -23,12 +23,12 @@ class Article
     private $nam;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text",  nullable=true)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="text",  nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $localisation;
 
