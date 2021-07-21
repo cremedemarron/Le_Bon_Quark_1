@@ -19,6 +19,7 @@ class ArticleType extends AbstractType
             ->add('weight')
             ->add('image')
             // ->add('auteure')
+            ->add('category')
         ;
     }
 
