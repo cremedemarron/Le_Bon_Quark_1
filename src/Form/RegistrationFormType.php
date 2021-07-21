@@ -12,6 +12,9 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+
+
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -19,11 +22,19 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('email')
            
-            ->add('plainPassword', PasswordType::class, [
+            ->add('plainPassword', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'mot de passe'],
+                'second_options' => ['label' => 'confirmé mot de passe'],
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                
+               
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -39,7 +50,7 @@ class RegistrationFormType extends AbstractType
             ->add('psedo')
             ->add('spaces')
             ->add('homePlanet')
-            ->add('galacticCredit')
+            // ->add('galacticCredit')
            
             ->add('description')
             ->add('avatar')

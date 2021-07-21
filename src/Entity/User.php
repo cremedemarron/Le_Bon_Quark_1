@@ -50,7 +50,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $galacticCredit;
+    private $galacticCredit =10000;
 
     
     /**
