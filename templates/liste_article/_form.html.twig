@@ -1,4 +1,12 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+   {{ form_row(form.nam) }}
+         {{form_row(form.description)}}
+          {{ form_row(form.localisation) }}
+         {{form_row(form.price)}}
+          {{ form_row(form.weight) }}
+         {{form_row(form.image)}}
+        {# {{ form_row(form.auteure, {'attr': {'value': app.user.username }}) }} #}
+
+     
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

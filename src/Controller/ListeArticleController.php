@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ListeArticleController extends AbstractController
 {
+   
     /**
      * @Route("/", name="liste_article_index", methods={"GET"})
      */
@@ -30,12 +31,14 @@ class ListeArticleController extends AbstractController
      */
     public function new(Request $request): Response
     {
+     $psedoAuteur = $this->getUser();
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $article->setAuteure($this->getUser());
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -45,6 +48,7 @@ class ListeArticleController extends AbstractController
         return $this->renderForm('liste_article/new.html.twig', [
             'article' => $article,
             'form' => $form,
+            // 'auteure'=> $psedoAuteur
         ]);
     }
 

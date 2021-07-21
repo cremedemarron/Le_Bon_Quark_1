@@ -15,6 +15,7 @@
                 <th>Price</th>
                 <th>Weight</th>
                  <th>image</th>
+                 <th>auteure</th>
                 <th>actions</th>
                
             </tr>
@@ -29,6 +30,7 @@
                 <td>{{ article.price }}</td>
                 <td>{{ article.weight }}</td>
                  <td>{{ article.image }}</td>
+                 <td>{{ article.auteure }}</td>
                 <td>
                     <a href="{{ path('liste_article_show', {'id': article.id}) }}">show</a>
                     <a href="{{ path('liste_article_edit', {'id': article.id}) }}">edit</a>
