@@ -80,7 +80,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->articles = new ArrayCollection();
     }
 
-    
+    public function  __toString()
+    {
+        return $this->psedo;
+    }
 
 
  
@@ -130,10 +133,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return array_unique($roles);
     }
-    public function  __toString()
-    {
-        return $this->psedo;
-    }
+  
 
     public function setRoles(array $roles): self
     {
