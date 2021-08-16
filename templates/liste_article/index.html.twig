@@ -63,11 +63,24 @@
 
 		<div class="gallery-item">
         <h3 class="text-center">{{article.nam}}</h3>
-        <div class= "row">
-        <div class ="d-flex flex-row"><div class="p-1 text-secondary">catégorie:</div><div class="p-1 " >{{article.category}}</div> </div> 
-         <p>auteure: {{article.auteure}}       prix: {{article.price}}</p>
-        </div>
-			<img class="gallery-image" src="{{article.image}}">
+       
+        <div class ="text-center d-flex flex-row "><div class="p-1 text-secondary">catégorie:</div><div class="p-1 " >{{article.category}}</div> </div> 
+        
+         <div class ="d-flex flex-row">
+
+          <div class="p-5 d-flex flex-row" >
+          <div class=" text-secondary p-1">auteure: </div> 
+          <div class="p-1">{{article.auteure}}  </div> 
+          </div>
+
+            <div class="p-5  d-flex flex-row" >
+             <div class = " text-secondary p-1"> prix: </div> 
+             <div class= "p-1">{{article.price}} </div>
+             </div>
+             
+             </div>
+      
+			<a href="{{ path('liste_article_show', {'id': article.id}) }}"><img class="gallery-image" src="{{article.image}}"></a>
 		</div>
  {% endfor %}
 	</div>

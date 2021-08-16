@@ -27,7 +27,7 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
-                'options' => ['attr' => ['class' => 'password-field']],
+                'options' => ['attr' => ['class' => 'password-field placeholder']],
                 'required' => true,
                 'first_options'  => ['label' => 'mot de passe'],
                 'second_options' => ['label' => 'confirmé mot de passe'],
@@ -47,10 +47,12 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+
+
             ->add('psedo')
             ->add('spaces')
             ->add('homePlanet')
-            // ->add('galacticCredit')
+          
            
             ->add('description')
             ->add('avatar')
