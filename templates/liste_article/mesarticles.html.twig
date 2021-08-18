@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index
+{% endblock %}
+
+{% block body %}
+
+	<h1>Article de
+		{{app.user.psedo}}</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nam</th>
+				<th>Description</th>
+				<th>Localisation</th>
+				<th>Price</th>
+				<th>Weight</th>
+				<th>image</th>
+				<th>auteure</th>
+				<th>category</th>
+				<th>actions</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			{% for article in articles %}
+
+				{% if article.auteure == app.user.psedo %}
+					<tr>
+						<td>{{ article.id }}</td>
+						<td>{{ article.nam }}</td>
+						<td>{{ article.description }}</td>
+						<td>{{ article.localisation }}</td>
+						<td>{{ article.price }}</td>
+						<td>{{ article.weight }}</td>
+						<td>{{ article.image }}</td>
+						<td>{{ article.auteure }}</td>
+						<td>{{ article.category }}</td>
+						<td>
+							<a href="{{ path('liste_article_show', {'id': article.id}) }}">voire</a>
+
+							<a href="{{ path('liste_article_edit', {'id': article.id}) }}">modifier</a>
+
+
+						</td>
+					</tr>
+
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('liste_article_new') }}">Create new</a>
+
+	<div class="container">
+
+		<h1 class="heading">bienvenus sur le bon Quark!
+			<span>un large chois dan tout la galaxis</span>
+		</h1>
+
+		<div class="gallery">
+			{% for article in articles %}
+				{% if article.auteure == app.user.psedo %}
+
+					<div class="gallery-item">
+						<h3 class="text-center">{{article.nam}}</h3>
+
+						<div class="text-center d-flex flex-row ">
+							<div class="p-1 text-secondary">catégorie:</div>
+							<div class="p-1 ">{{article.category}}</div>
+						</div>
+
+						<div class="d-flex flex-row">
+
+							<div class="p-5 d-flex flex-row">
+								<div class=" text-secondary p-1">auteure:
+								</div>
+								<div class="p-1">{{article.auteure}}
+								</div>
+							</div>
+
+							<div class="p-5  d-flex flex-row">
+								<div class=" text-secondary p-1">
+									prix:
+								</div>
+								<div class="p-1">{{article.price}}
+								</div>
+							</div>
+
+						</div>
+						<div class="flex-row">
+							<a href="{{ path('liste_article_edit', {'id': article.id}) }}" class="">modifier</a>
+							{{ include('liste_article/_delete_form.html.twig') }}
+						</div>
+						<a href="{{ path('liste_article_show', {'id': article.id}) }}"><img class="gallery-image" src="{{article.image}}"></a>
+
+
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+	</div>
+
+
+{% endblock %}

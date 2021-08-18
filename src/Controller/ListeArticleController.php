@@ -28,6 +28,17 @@ class ListeArticleController extends AbstractController
     }
 
     /**
+     * @Route("/mesarticles", name="liste_article_mesarticles", methods={"GET"})
+     */
+    public function mesarticles(ArticleRepository $mesarticles): Response
+    {
+        return $this->render('liste_article/mesarticles.html.twig', [
+            'articles' => $mesarticles->findAll(),
+            
+        ]);
+    }
+
+    /**
      * @Route("/new", name="liste_article_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
