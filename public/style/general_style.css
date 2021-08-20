@@ -4,3 +4,9 @@
     color: rgb(223, 223, 223) ;
     width: 100%;
 }
+
+.card-img-top {
+    width: 5em;
+    height: 5em;
+    align-self: center;
+  }

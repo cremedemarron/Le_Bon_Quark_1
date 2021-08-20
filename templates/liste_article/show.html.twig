@@ -49,6 +49,7 @@
     </table>
 
     <a href="{{ path('liste_article_index') }}">back to list</a>
+    <a href="{{path('panier_add',{'id': article.id})}}"> ajouter au panier</a>
     
     {% if article.auteure == app.user.psedo %}
 
