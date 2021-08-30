@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
+use App\Entity\User;
 class PanierController extends AbstractController
 {
     /**
@@ -78,6 +79,29 @@ public function delete ($id, SessionInterface $session)
     $session-> set('panier', $panier);
 
     return $this->redirectToRoute("panier");
+}
+
+ /**
+     * @Route("/panier/trensaction", name="panier_trensaction")
+     */
+
+public function trensaction (){
+
+    
+
+ 
+
+   $this->getUser()->setGalacticCredit($this->getUser()->getGalacticCredit()-1);
+
+   $u =$this->getUser()->getGalacticCredit();
+
+//    setGalacticCredit($user) = $user->getGalacticCredit() - $total;
+
+
+return $this->render('panier/trensaction.html.twig', [
+    'affichage' => $u,
+]
+ );
 }
 
 }

@@ -10,8 +10,12 @@
 
 		<h1>bienvenu sur le Bon Quark</h1>
 
-	
-	
 
+		{{app.user.roles[0]}}
 
+	{% if (is_granted('ROLE_ADMIN'))%}
+	
+	<a href="/admin"> partie admin</a>
+
+{% endif %}
 	{% endblock %}

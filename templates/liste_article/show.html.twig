@@ -1,61 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}Article
+{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
+	<h1>Article</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr>
-            <tr>
-                <th>Nam</th>
-                <td>{{ article.nam }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ article.description }}</td>
-            </tr>
-            <tr>
-                <th>Localisation</th>
-                <td>{{ article.localisation }}</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ article.price }}</td>
-            </tr>
-            <tr>
-                <th>Weight</th>
-                <td>{{ article.weight }}</td>
-            </tr>
-             <tr>
-                <th>image</th>
-                <td>{{ article.image }}</td>
-            </tr>
-            
-               <th>auteure_id </th>
-                <td>{{ article.auteure }}</td>
-                
-              
-                <tr>
-                <th>category</th>
-                <td>{{ article.category }}</td>
-            </tr>
-           
-        </tbody>
-    </table>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ article.id }}</td>
+			</tr>
+			<tr>
+				<th>Nam</th>
+				<td>{{ article.nam }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ article.description }}</td>
+			</tr>
+			<tr>
+				<th>Localisation</th>
+				<td>{{ article.localisation }}</td>
+			</tr>
+			<tr>
+				<th>Price</th>
+				<td>{{ article.price }}</td>
+			</tr>
+			<tr>
+				<th>Weight</th>
+				<td>{{ article.weight }}</td>
+			</tr>
+			<tr>
+				<th>image</th>
+				<td>{{ article.image }}</td>
+			</tr>
 
-    <a href="{{ path('liste_article_index') }}">back to list</a>
-    <a href="{{path('panier_add',{'id': article.id})}}"> ajouter au panier</a>
-    
-    {% if article.auteure == app.user.psedo %}
+			<th>auteure_id
+			</th>
+			<td>{{ article.auteure }}</td>
 
-    <a href="{{ path('liste_article_edit', {'id': article.id}) }}">edit</a>
 
-    {{ include('liste_article/_delete_form.html.twig') }}
+			<tr>
+				<th>category</th>
+				<td>{{ article.category }}</td>
+			</tr>
 
-    {% endif  %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('liste_article_index') }}">back to list</a>
+	<a href="{{path('panier_add',{'id': article.id})}}">
+		ajouter au panier</a>
+
+	{% if app.user.psedo is defined %}
+		{% if article.auteure == app.user.psedo %}
+
+			<a href="{{ path('liste_article_edit', {'id': article.id}) }}">edit</a>
+
+			{{ include('liste_article/_delete_form.html.twig') }}
+		{% endif  %}
+	{% endif  %}
 {% endblock %}

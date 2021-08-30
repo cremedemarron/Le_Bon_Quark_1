@@ -26,10 +26,10 @@ class ArticleVoter extends Voter
 
         // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'EDIT':
+           case 'EDIT':
                 // logic to determine if the user can EDIT
                 // return true or false
-                return $user === $article->getAuteure();
+                return $user == $article->getAuteure();
                 break;
             case 'POST_VIEW':
                 // logic to determine if the user can VIEW

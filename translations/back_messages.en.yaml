@@ -1,0 +1,75 @@
+action:
+    delete: Delete
+    update: Update
+button:
+    back: Back
+    cancel: Cancel
+    create: Add
+    delete: Delete
+    delete_title: Delete
+    filter: Filter
+    next: Next
+    previous: Previous
+    read_title: Details
+    submit: Submit
+    update_title: Update
+    validate: Validate
+delete:
+    confirm: 'Confirmation of deletion'
+    warning: 'The deletion will be final.'
+error:
+    no_element_selected: 'No element selected'
+label:
+    filter_number_by_page: 'Number by page'
+    filter_search: Search
+'no': 'No'
+search:
+    action_th: Action(s)
+    no_data_found: 'No data found'
+user:
+    create:
+        flash:
+            success: 'User created (%identifier%).'
+        h1: 'Create - User'
+        h2: 'Create form'
+        title: 'Create - User'
+    delete:
+        flash:
+            success: 'User(s) deleted.'
+        h1: 'Delete - User'
+        h2: 'The following list will be deleted'
+        modal_title: 'Delete - User'
+    field:
+        created_at: createdAt
+        email: Email
+        enabled: enabled
+        firstname: firstname
+        last_login_at: lastLoginAt
+        lastname: lastname
+        roles: Roles
+        updated_at: updatedAt
+    label:
+        avatar: Avatar
+        description: Description
+        email: Email
+        galactic_credit: 'Galactic Credit'
+        home_planet: 'Home Planet'
+        password: Password
+        psedo: Psedo
+        roles: Roles
+        spaces: Spaces
+    read:
+        h1: 'Details - User'
+        h2: Details
+        title: 'Details - User'
+    search:
+        h1: 'Search - User'
+        h2: Search
+        title: 'Search - User'
+    update:
+        flash:
+            success: 'User updated.'
+        h1: 'Update - User'
+        h2: 'Update form'
+        title: 'Update - User'
+'yes': 'Yes'

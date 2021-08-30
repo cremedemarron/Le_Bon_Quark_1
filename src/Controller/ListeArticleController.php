@@ -80,7 +80,7 @@ class ListeArticleController extends AbstractController
     public function edit(Request $request, Article $article): Response
     {
         // check for "edit" access: calls all voters
-        $this->denyAccessUnlessGranted('edit', $article);
+        // $this->denyAccessUnlessGranted('edit', $article);
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
