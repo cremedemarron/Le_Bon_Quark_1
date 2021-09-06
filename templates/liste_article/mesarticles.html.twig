@@ -8,7 +8,7 @@
 	<h1>Article de
 		{{app.user.psedo}}</h1>
 
-	<table class="table">
+	<!-- <table class="table">
 		<thead>
 			<tr>
 				<th>Id</th>
@@ -50,21 +50,21 @@
 				{% endif %}
 			{% endfor %}
 		</tbody>
-	</table>
+	</table> -->
 
-	<a href="{{ path('liste_article_new') }}">Create new</a>
+	<a href="{{ path('liste_article_new') }}" class='btn btn-success'> nouvel Article <article></article></a>
 
 	<div class="container">
 
 		<h1 class="heading">bienvenus sur le bon Quark!
-			<span>un large chois dan tout la galaxis</span>
+			<span>un large choix dans toute la galaxis</span>
 		</h1>
 
 		<div class="gallery">
 			{% for article in articles %}
 				{% if article.auteure == app.user.psedo %}
 
-					<div class="gallery-item">
+					<div class="gallery-item border">
 						<h3 class="text-center">{{article.nam}}</h3>
 
 						<div class="text-center d-flex flex-row ">
@@ -91,8 +91,8 @@
 
 						</div>
 						<div class="flex-row">
-							<a href="{{ path('liste_article_edit', {'id': article.id}) }}" class="">modifier</a>
-							{{ include('liste_article/_delete_form.html.twig') }}
+							<a href="{{ path('liste_article_edit', {'id': article.id}) }}" class="btn btn-info">modifier</a>
+							<div class='btn btn-danger'>{{ include('liste_article/_delete_form.html.twig') }}</div>
 						</div>
 						<a href="{{ path('liste_article_show', {'id': article.id}) }}"><img class="gallery-image" src="{{article.image}}"></a>
 

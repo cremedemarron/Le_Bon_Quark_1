@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ArticleRepository;
 use App\Entity\User;
+use App\Entity\Article;
 class PanierController extends AbstractController
 {
     /**
@@ -82,17 +83,19 @@ public function delete ($id, SessionInterface $session)
 }
 
  /**
-     * @Route("/panier/trensaction", name="panier_trensaction")
+     * @Route("/panier/buy/{id}", name="panier_buy")
      */
 
-public function trensaction (){
+public function buy($id){
 
+    $entityManager = $this->getDoctrine()->getManager();
+    $repo=$this->getDoctrine()->getRepository(article::class);
     
-
- 
-
-   $this->getUser()->setGalacticCredit($this->getUser()->getGalacticCredit()-1);
-
+    $article=$repo->find($id);
+   $user=$this->getUser()->setGalacticCredit($this->getUser()->getGalacticCredit()-$article->getPrice());
+   $entityManager->persist($user);
+   
+   $entityManager->flush();
    $u =$this->getUser()->getGalacticCredit();
 
 //    setGalacticCredit($user) = $user->getGalacticCredit() - $total;

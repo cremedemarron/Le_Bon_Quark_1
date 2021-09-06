@@ -26,7 +26,8 @@
     <td>{{item.article.price}}</td>
     <td>{{item.quantity}}</td>
     <td>{{item.quantity * item.article.price }}</td>
-    <td><a href="{{path('panier_delete',{'id' : item.article.id })}}" class="btn btn-danger btn-sm"> supprimer</a></td>
+     <td><a href="{{path('panier_buy',{'id' : item.article.id})}}" class="btn  btn-success btn-sm"> passer commande</a>
+    <a href="{{path('panier_delete',{'id' : item.article.id })}}" class="btn btn-danger btn-sm"> supprimer</a></td>
 </tr>
 {% endfor %}
 </tbody>
@@ -35,7 +36,7 @@
  <tr>
      <td colspan= "3" class='text-right'>Total:</td>
      <td>{{total}}  </td>
-     <td><a href="{{path('panier_trensaction')}}"> passer commande</a></td>
+     {# <td><a href="{{path('panier_trensaction')}}" class='btn btn-success'> passer commande panier</a></td> #}
  </tr>
  </tfoot>
 

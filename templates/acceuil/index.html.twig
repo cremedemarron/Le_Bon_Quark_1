@@ -1,21 +1,97 @@
 {% extends 'base.html.twig' %}
 
 
+{% block title %}le bon Quark
+{% endblock %}
 
-	{% block title %}le bon Quark
-	{% endblock %}
+{% block body %}
 
-	{% block body %}
+<div class=' container-fluid text-center background-trensparent'>
+	<h1 class=" col-md-12">bienvenu sur le Bon Quark!!</h1>
+{% if is_granted('ROLE_USER')%}
+{% else %}
+	<!-- Button trigger modal -->
+	<button type="button" class="btn-success  col-md-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		<div class=''>commencer! </div>
+	</button>
+  </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">ques que le bon Quark?</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					le bon Quark est un site de rôleplay ou les utilisateurs se crée une identité fictive
+					        a fin de metre en vente des articles dans la thème science-fiction.
+					<br>
+					cela peu être des objets issue de film, série, jeux vidéo ou bien des objet totalement inventé.
+					         la seul limite est  l'imagination.
+					<br>
+					rendez vous dan la
+					<a href="/liste/article">liste des article</a>
+					<br>
+					les trensactions son réaliser en ξ(crédit galactics)
+					         chaque utilisateure commence avec 1000ξ. a lui de faire preuve de suffisament de crativité 
+					         pour donner envie et augmenté ça mise.
 
 
-		<h1>bienvenu sur le Bon Quark</h1>
-
-
-		{{app.user.roles[0]}}
-
-	{% if (is_granted('ROLE_ADMIN'))%}
-	
-	<a href="/admin"> partie admin</a>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn-danger" data-bs-dismiss="modal">fermer</button>
+					<button type="button" class="btn btn-success">
+						<a href='/register' class=' lien '>crrer un conte !</button>
+					</div>
+				</div>
+			</div>
 
 {% endif %}
-	{% endblock %}
+			<script src="{{asset('script/rgba.js')}}"></script>
+			<script src="{{asset('script/svg.js')}}"></script>
+			<!--    <script src="record.js"></script>-->
+			<script>
+				let to = 1;
+RGBA(`
+
+        float kali(vec2 uv){
+            for (float i=0.; i<7.; i++)
+                uv = abs(uv) / dot(uv, uv) - 1.02+vec2(sin(time)*0.02,cos(time)*0.03);
+            return length(uv);
+        }
+        
+        float channel(vec2 p, float d) {
+            vec2 t = p+d; 
+            float tot = 0.0, sum = 0.0, amp = 1.0;
+            float sn = sin(time/9.);
+            float cs = cos(time/13.); 
+            p *= mat2(sn,cs,-cs,sn);
+            for (float i = 0.; i < 7.; i++) {
+                tot += kali(p + t) * amp; 
+                p *= 1.5 * mat2(sn,cs,-cs,sn); 
+                t *= 0.9; 
+                sum += 1.; 
+                amp *= 0.9; 
+            }
+            return 1.-smoothstep(0.3, 0.6, tot/sum); 
+        }
+        
+        void main(){
+            vec2 uv = gl_FragCoord.xy/resolution - 0.5;
+            uv.x *= resolution.x/resolution.y;
+        
+        
+            gl_FragColor = vec4(
+                channel(uv, .00),
+                channel(uv, .001),
+                channel(uv, .002),
+                1.);
+        }
+        
+        `, {record: true});
+			</script>
+
+
+		{% endblock %}

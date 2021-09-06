@@ -1,0 +1,140 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content%}
+
+	<table class="table">
+		<thead>
+         <th> Utilisateurs</th>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Password</th>
+				<th>Spaces</th>
+				<th>HomePlanet</th>
+				<th>GalacticCredit</th>
+
+				<th>Description</th>
+				<th>Avatar</th>
+
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+            {% if user.roles[0]=="ROLE_USER" %}
+				
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.email }}</td>
+
+
+						<td>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+								passer Administrateur
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											êtes vous sur de vouloir passer cette utilisateur Administrateur?
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+											<button type="button" class="btn btn-primary"><a herf="{{path('admin_changeRole',{'id':user.id})}}">sauvgarder changement</a></button>
+										</div>
+									</div>
+								</div>
+							</td>
+							{# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+						</td>
+						<td>{{ user.password }}</td>
+						<td>{{ user.psedo }}</td>
+						<td>{{ user.spaces }}</td>
+						<td>{{ user.homePlanet }}</td>
+						<td>{{ user.galacticCredit }}</td>
+
+						<td>{{ user.description }}</td>
+						<td>{{ user.avatar }}</td>
+
+
+						<td>
+							<a href="{{ path('newaccount_show', {'id': user.id}) }}">show</a>
+							{# <a href="{{ path('newaccount_edit', {'id': user.id}) }}">edit</a> #}
+						</td>
+					</tr>
+				
+				{%  endif  %}
+			{% endfor %}
+		</tbody>
+	</table>
+    
+
+        <br>
+        <br>
+
+
+
+	<table class="table">
+  
+		<thead>
+          <th> Administrateurs</th>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Roles</th>
+				<th>Password</th>
+				<th>Spaces</th>
+				<th>HomePlanet</th>
+				<th>GalacticCredit</th>
+
+				<th>Description</th>
+				<th>Avatar</th>
+
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				{% if user.roles[0]=="ROLE_ADMIN" %}
+					<tr>
+						<td>{{ user.id }}</td>
+						<td>{{ user.email }}</td>
+
+
+						<td>
+							
+							{# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
+						</td>
+						<td>{{ user.password }}</td>
+						<td>{{ user.psedo }}</td>
+						<td>{{ user.spaces }}</td>
+						<td>{{ user.homePlanet }}</td>
+						<td>{{ user.galacticCredit }}</td>
+
+						<td>{{ user.description }}</td>
+						<td>{{ user.avatar }}</td>
+
+
+						<td>
+							<a href="{{ path('newaccount_show', {'id': user.id}) }}">show</a>
+							{# <a href="{{ path('newaccount_edit', {'id': user.id}) }}">edit</a> #}
+						</td>
+					</tr>
+				
+				{%  endif  %}
+			{% endfor %}
+		</tbody>
+	</table>
+    
+
+
+	<a href="{{ path('newaccount_new') }}">Create new</a>
+{% endblock %}
